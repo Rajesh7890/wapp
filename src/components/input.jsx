@@ -1,16 +1,17 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { isEmpty } from 'ramda';
 
-
-export default function Input(props){
+export default function Input(props) {
   const {
-    label, type, name, containerStyle, labelStyle, style
+    label, type, name, containerStyle, labelStyle, style,
   } = props;
 
   return (
-    <div className={`input-field-container `} style={containerStyle}>
-      {!isEmpty(label) && <label className="label" style={labelStyle}>{label}</label>}
+    <div className="input-field-container" style={containerStyle}>
+      {!isEmpty(label) && (
+        <label className="label" style={labelStyle} htmlFor={name}>{label}</label>
+      )}
       <input className={`input ${name}-field`} type={type} name={name} style={style} />
     </div>
   );
